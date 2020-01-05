@@ -21,17 +21,15 @@ page.evaluate(function() {
     el[el.length-1].style.cssText = 'position: absolute; bottom: 40px; left: 125px; width:160px;';
     el[el.length-2].style.cssText = 'position: absolute; bottom: 40px; right: 125px; width:160px;';
     var elements = document.getElementsByClassName('trello-list-name');
-    // var today = new Date();
-    // var dd = String(today.getDate()).padStart(2, '0');
-    // var mm = String(today.getMonth() + 1).padStart(2, '0'); 
-    // var yyyy = today.getFullYear();
-
-    // today = dd + '.' + mm ;
-    // for (i = 0; i < elements.length; i++) {
-    //     elements[i].style.textAlign = 'center';
-
-    //     if(elements[i].textContent == " "+today+" "){elements[i].parentNode.style.cssText = 'background-color: #ffaacc; ';}
-    // }
+    for (i = 0; i < document.getElementsByClassName('trello-card--label').length; i++) {
+        var el = document.getElementsByClassName('trello-card--label')[i].parentNode;
+        el = el.parentNode;
+        el.innerHTML = el.innerHTML.strike();
+    }
+	var el = document.getElementsByClassName('trello-list-name');
+	for (i = 1; i < el.length; i++) {
+	    if (i==6|i==7|i==13|i==14|i==20|i==21) {el[i-1].style.color = 'red'}
+	}
     
 });
 // var content = page.content;
